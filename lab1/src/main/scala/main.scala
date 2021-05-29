@@ -1,5 +1,3 @@
-import org.scalacheck.Prop.forAll
-import org.scalacheck.{Arbitrary, Gen, Prop}
 import scala.language.implicitConversions
 
 trait CommutativeMonoid[A]{
