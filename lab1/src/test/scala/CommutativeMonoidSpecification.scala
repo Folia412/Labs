@@ -1,6 +1,6 @@
 import org.scalacheck.Properties
 import org.scalacheck.Prop.forAll
-import CommutativeMonoids._
+import CommutativeMonoidOps._
 
 object MonoidSpecification extends Properties("CommutativeMonoid") {
     property("associat1") = forAll {

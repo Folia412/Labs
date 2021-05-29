@@ -1,5 +1,3 @@
-import org.scalacheck.Prop.forAll
-import org.scalacheck.{Arbitrary, Gen, Prop}
 import scala.language.implicitConversions
 
 trait CommutativeMonoid[A]{
@@ -14,16 +12,13 @@ object CommutativeMonoid{
     Set[Int] = x ++ y
   }
 }
-class CommutativeMonoids[A: CommutativeMonoid](x: A)(implicit g: CommutativeMonoid[A]) {
+class CommutativeMonoidOps[A](x: A)(implicit g: CommutativeMonoid[A]) {
   def ||(y: A): A = g.union(x, y)
-
   def **(y: A): A = g.sum(x, y)
 }
-object Mono1 {
-  def main(args: Array[String]): Unit = {
-    implicit def common[A](x: A)(implicit g: CommutativeMonoid[A]): CommutativeMonoids[A] = {
-      new CommutativeMonoids[A](x)
-    }
+object CommutativeMonoidOps {
+  implicit def common[A](x: A)(implicit g: CommutativeMonoid[A]): CommutativeMonoidOps[A] = {
+    new CommutativeMonoidOps[A](x)
   }
 }
     
