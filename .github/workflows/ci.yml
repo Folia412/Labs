@@ -8,11 +8,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-        working-derictory: lab1
       - name: Setup Scala
         uses: olafurpg/setup-scala@v10
         with:
           java-version: "adopt@1.8"
-        working-derictory: lab1
       - name: Build and Test
+        working-directory: lab1
         run: sbt -v -Dfile.encoding=UTF-8 +test
