@@ -15,8 +15,8 @@ trait CommutativeMonoid[A]{
     }
 }
 class CommutativeMonoidOps[A](x: A)(implicit g: CommutativeMonoid[A]) {
-  def ||(y: A): Set[Int] = g.union(x, y)
-  def **(y: A): Set[Int] = g.sum(x, y)
+  def ||(y: A): A = g.union(x, y)
+  def **(y: A): A = g.sum(x, y)
 }
 object CommutativeMonoidOps {
   implicit def common[A](x: A)(implicit g: CommutativeMonoid[A]): CommutativeMonoidOps[A] = {
