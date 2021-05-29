@@ -4,8 +4,7 @@ addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.3" cross CrossVers
 
 scalacOptions += "-Ydelambdafy:inline"
 libraryDependencies ++= Seq(
-  "org.scalacheck" %% "scalacheck" % "1.15.4",
-  "org.scastie" %% "runtime-scala" % "1.0.0-SNAPSHOT"
+  "org.scalacheck" %% "scalacheck" % "1.15.4" % "test"
 )
 scalacOptions ++= Seq(
   "-deprecation",
