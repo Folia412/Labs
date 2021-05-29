@@ -11,8 +11,8 @@ object CommutativeMonoid{
     override val zero = Set()
   }
 }
-class CommutativeMonoids[A: CommutativeMonoid](x: A)(implicit g: CommutativeMonoid[A]) {
-  def ||(y: A): A = g.union(x, y)  
+class CommutativeMonoidOps[A](x: A)(implicit g: CommutativeMonoid[A]) {
+  def ||(y: A): A = g.union(x, y)
 }
 object CommutativeMonoidOps {
   implicit def common[A](x: A)(implicit g: CommutativeMonoid[A]): CommutativeMonoidOps[A] = {
